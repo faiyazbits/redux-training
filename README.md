@@ -1,2 +1,2 @@
-# functional_programming_training
-functional programming training
+# redux_training
+redux_training
