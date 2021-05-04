@@ -10,3 +10,21 @@ export function addIssue(description){
         }
     }
 }
+
+export function removeIssue(id){
+    return {
+        type: actionTypes.REMOVED_ISSUE,
+        payload: {
+            id
+        }
+    }
+}
+
+export function resolvedIssue(id){
+    return {
+        type: actionTypes.RESOLVED_ISSUE,
+        payload: {
+            id
+        }
+    }
+}

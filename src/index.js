@@ -26,17 +26,18 @@ store.subscribe(() => {
 
 
 store.dispatch(actions.addIssue("newBug"));
+store.dispatch(actions.addIssue("new bug2"));
+store.dispatch(actions.addIssue("new bug3"));
+store.dispatch(actions.addIssue("new bug4"));
+store.dispatch(actions.addIssue("new bug5"));
+store.dispatch(actions.addIssue("new bug6"));
 
-store.dispatch(actions.addIssue("new bug2"))
 
-/* 
-store.dispatch({
-    type: actionTypes.REMOVED_ISSUE,
-    payload:{
-        id: 2
-    }
-});
- */
+store.dispatch(actions.removeIssue(2));
+store.dispatch(actions.removeIssue(4));
+ 
+store.dispatch(actions.resolvedIssue(1));
+store.dispatch(actions.resolvedIssue(3));
 
 
 // exercise one : refactor action creator for remove issue
