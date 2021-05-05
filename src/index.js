@@ -1,4 +1,4 @@
-import store from "./store";
+import {store} from "./store";
 import * as actions from "./action";
 
 // single state object for entire application ( single source of truth)
@@ -26,8 +26,20 @@ store.subscribe(() => {
 
 
 store.dispatch(actions.addIssue("newBug"));
-
 store.dispatch(actions.addIssue("new bug2"))
+store.dispatch(actions.addIssue("new bug3"))
+store.dispatch(actions.addIssue("new bug3"))
+
+
+store.dispatch(actions.removeIssue(2));
+
+store.dispatch(actions.resolveIssue(3))
+store.dispatch(actions.resolveIssue(4))
+
+
+
+
+
 
 /* 
 store.dispatch({
