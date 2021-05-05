@@ -27,9 +27,14 @@ store.subscribe(() => {
 
 store.dispatch(actions.addIssue("newBug"));
 
-store.dispatch(actions.addIssue("new bug2"))
+store.dispatch(actions.addIssue("new bug2"));
 
-/* 
+store.dispatch(actions.addIssue("new bug3"));
+
+store.dispatch(actions.removeIssue(2));
+store.dispatch(actions.BugIssue(3));
+
+/*
 store.dispatch({
     type: actionTypes.REMOVED_ISSUE,
     payload:{
