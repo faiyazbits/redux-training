@@ -1,23 +1,37 @@
+import * as actionTypes from './actionTypes'
 
+let id = 1;
 
-import * as actionTypes from './actionTypes';
-
-let index=0
-export default function reducer(state = [],action){
-
+function reducer(state =[],action){
     switch(action.type){
-        case actionTypes.ADD_ISSUE:
-            return [
-                ...state,
-                {
-                    id: ++index,
-                    description: action.payload.description,
-                    resolved :false
-                }
-            ]
-        case actionTypes.REMOVED_ISSUE:
-            return state.filter(i => i.id !== action.payload.id)
+        case actionTypes.ISSUE_ADDED:
+            return [...state,{
+                id:id++,
+                description:action.payload.description,
+                isResolved:false
+            }]
 
-        default: state   
+
+       case actionTypes.ISSUE_REMOVED:
+           return state.filter(issue =>{
+               return issue.id !== action.payload.id
+           })
+           
+           case actionTypes.ISSUE_RESOLVED:
+           return state.map(issue =>{
+              if(issue.id == action.payload.id){
+                issue.isResolved = true
+              }
+              else{
+                  return state
+              }
+
+             
+           })
+
+        default:state
     }
+    return state
 }
+
+export default reducer
