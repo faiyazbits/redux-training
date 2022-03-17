@@ -18,6 +18,16 @@ export default function reducer(state = [],action){
         case actionTypes.REMOVED_ISSUE:
             return state.filter(i => i.id !== action.payload.id)
 
-        default: state   
+            case actionTypes.RESOLVED_ISSUE:
+                return state.map((i) => {
+                   if(i.id == action.payload.id  ){
+                       return {...i,resolved:true};
+                   }else{
+                       return i;
+                   }
+       })
+
+
+       default: state   
     }
 }

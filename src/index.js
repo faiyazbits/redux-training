@@ -22,12 +22,24 @@ console.log("current state",store.getState());
 
 store.subscribe(() => {
     console.log("store changed", store.getState());
+    
 })
 
 
-store.dispatch(actions.addIssue("newBug"));
+store.dispatch(actions.addIssue("newBug1"));
 
-store.dispatch(actions.addIssue("new bug2"))
+
+store.dispatch(actions.addIssue("newBug2"));
+
+store.dispatch(actions.addIssue("newBug3"))
+
+
+
+store.dispatch(actions.removeIssue(2));
+
+store.dispatch(actions.resolveIssue(1));
+
+
 
 /* 
 store.dispatch({
