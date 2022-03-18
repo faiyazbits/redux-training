@@ -21,7 +21,10 @@ export default function reducer(state = [],action){
             case actionTypes.RESOLVED_ISSUE:
                 return state.map((i) => {
                    if(i.id == action.payload.id  ){
-                       return {...i,resolved:true};
+                       return {
+                           ...i,
+                         resolved:true
+                    };
                    }else{
                        return i;
                    }
