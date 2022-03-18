@@ -25,9 +25,22 @@ store.subscribe(() => {
 })
 
 
-store.dispatch(actions.addIssue("newBug"));
+store.dispatch(actions.addIssue("newBug1"));
 
 store.dispatch(actions.addIssue("new bug2"))
+store.dispatch(actions.addIssue("new bug3"))
+store.dispatch(actions.addIssue("new bug4"))
+store.dispatch(actions.addIssue("new bug5"))
+
+ store.dispatch(actions.removeIssue(2))
+
+
+store.dispatch(actions.resolveIssue(3));
+store.dispatch(actions.resolveIssue(4));
+store.dispatch(actions.resolveIssue(4));
+
+store.dispatch(actions.updateIssue(1));
+
 
 /* 
 store.dispatch({
