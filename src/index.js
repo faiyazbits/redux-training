@@ -1,5 +1,16 @@
 import store from "./store";
-import * as actions from "./action";
+
+
+import * as issueActions from "./issues/issue.action"
+import * as projectActions from "./project/project.action"
+import * as userActions from "./users/users.action"
+
+
+import {issues} from "./data/issues.json"
+import {projects} from "./data/project.json"
+import {users} from "./data/users.json"
+
+
 
 // single state object for entire application ( single source of truth)
 // you should not directly mutate or update the store (changes are made with pure functions)
@@ -15,7 +26,6 @@ import * as actions from "./action";
 
 // design the store
 
-
 console.log("store",store);
 console.log("current state",store.getState());
 
@@ -25,31 +35,31 @@ store.subscribe(() => {
 })
 
 
-store.dispatch(actions.addIssue("newBug1"));
-
-store.dispatch(actions.addIssue("new bug2"))
-store.dispatch(actions.addIssue("new bug3"))
-store.dispatch(actions.addIssue("new bug4"))
-store.dispatch(actions.addIssue("new bug5"))
-
- store.dispatch(actions.removeIssue(2))
 
 
-store.dispatch(actions.resolveIssue(3));
-store.dispatch(actions.resolveIssue(4));
-store.dispatch(actions.resolveIssue(4));
-
-store.dispatch(actions.updateIssue(1));
+store.dispatch(issueActions.addIssues(issues));
+store.dispatch(projectActions.addProjects(projects));
+store.dispatch(userActions.addUsers(users));
 
 
-/* 
-store.dispatch({
-    type: actionTypes.REMOVED_ISSUE,
-    payload:{
-        id: 2
-    }
-});
- */
+store.dispatch(issueActions.addBacklogIssue('backlog'));
+store.dispatch(issueActions.addInProgressIssue("inprogress"));
+store.dispatch(issueActions.addSelectedIssue("selected"));
+store.dispatch(issueActions.addCompletedIssue("done"));
+
+store.dispatch(issueActions.removeIssue('4'));
+store.dispatch(issueActions.removeIssue('7'));
+
+
+store.dispatch(projectActions.removeProject("2"));
+store.dispatch(userActions.removeUser("2"));
+
+store.dispatch(userActions.setCurrentUser("1"))
+store.dispatch(projectActions.selectProject("3"));
+
+
+
+
 
 
 // exercise one : refactor action creator for remove issue

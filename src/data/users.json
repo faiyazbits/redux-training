@@ -1,0 +1,34 @@
+{
+    "users": [
+        {
+            "id": 2,
+            "name": "Pickle Rick",
+            "email": "rick@jira.guest",
+            "avatarUrl": "https://i.ibb.co/7JM1P2r/picke-rick.jpg",
+            "createdAt": "2022-02-08T11:07:49.415Z",
+            "updatedAt": "2022-02-08T11:07:49.430Z",
+            "projectId": 1,
+            "currentUser":false
+        },
+        {
+            "id": 1,
+            "name": "Baby Yoda",
+            "email": "yoda@jira.guest",
+            "avatarUrl": "https://i.ibb.co/6n0hLML/baby-yoda.jpg",
+            "createdAt": "2022-02-08T11:07:49.415Z",
+            "updatedAt": "2022-02-08T11:07:49.430Z",
+            "projectId": 1,
+            "currentUser":true
+        },
+        {
+            "id": 3,
+            "name": "Lord Gaben",
+            "email": "gaben@jira.guest",
+            "avatarUrl": "https://i.ibb.co/6RJ5hq6/gaben.jpg",
+            "createdAt": "2022-02-08T11:07:49.420Z",
+            "updatedAt": "2022-02-08T11:07:49.430Z",
+            "projectId": 1,
+            "currentUser":false
+        }
+    ]
+}
