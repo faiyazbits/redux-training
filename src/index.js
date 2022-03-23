@@ -1,23 +1,14 @@
 import store from "./store";
-import * as actions from "./action";
 
-// single state object for entire application ( single source of truth)
-// you should not directly mutate or update the store (changes are made with pure functions)
-// state is readonly
+import  *as issueAction from "./issues/issue.action"
+import *as projectAction from "./projects/project.action"
+import *as userAction from "./users/user.action"
 
-// dispatch an action
-// reducer will get called with current state and current action, will return state
-// components are notified (subscribe)
-// components will take the latest and update themselves
-
-// issue tracking
-// add issue, remove issue and mark issue as resolved
-
-// design the store
+import issuesData from "./data/issues";
+import projectData from "./data/projects"
+import userData from  "./data/users"
 
 
-console.log("store",store);
-console.log("current state",store.getState());
 
 
 store.subscribe(() => {
@@ -25,31 +16,70 @@ store.subscribe(() => {
     
 })
 
+// issues action
+ store.dispatch(issueAction.addIssue(issuesData))
+ store.dispatch(issueAction.setIssue(issuesData))
+ store.dispatch(issueAction.removeIssue(7))
+ store.dispatch(issueAction.updateIssue(3))
 
-store.dispatch(actions.addIssue("newBug1"));
+ store.dispatch(issueAction.backlogIssue("backlog"))
+ store.dispatch(issueAction.inprogressIssue("inprogress"))
+ store.dispatch(issueAction.completedIssue("selected"))
+ store.dispatch(issueAction.selectedIssue("done"))
+ 
 
+// projects action
 
-store.dispatch(actions.addIssue("newBug2"));
-
-store.dispatch(actions.addIssue("newBug3"))
-
-
-
-store.dispatch(actions.removeIssue(2));
-
-store.dispatch(actions.resolveIssue(1));
-
-
-
-/* 
-store.dispatch({
-    type: actionTypes.REMOVED_ISSUE,
-    payload:{
-        id: 2
-    }
-});
- */
+store.dispatch(projectAction.addProject(projectData))
+store.dispatch(projectAction.setProjects(projectData))
+store.dispatch(projectAction.removeProject(3))
+store.dispatch(projectAction.updatedProject(6))
 
 
-// exercise one : refactor action creator for remove issue
-// exercise two : implmenet bug resolution state management
+
+// users action
+store.dispatch(userAction.addUser(userData))
+store.dispatch(userAction.updateUser(2))
+store.dispatch(userAction.setCurrentUser(1))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
