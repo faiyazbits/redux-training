@@ -1,8 +1,12 @@
-export const ADD_ISSUE = "issueCreated";
-export const REMOVED_ISSUE = "issueRemoved";
-export const UPDATE_ISSUE = "issueUpdate";
 
-export const BACKLOG_ISSUE ='backlogIssue';
-export const INPROGRESS_ISSUE ='inProgressIssue';
-export const COMPLETED_ISSUE ='completedIssue';
-export const SELECTED_ISSUE ='selectedIssue';
+
+export const ADD_ISSUE = "ADD_ISSUE";
+export const REMOVED_ISSUE = "REMOVED_ISSUE";
+export const UPDATE_ISSUE = "UPDATE_ISSUE";
+export const SET_ISSUES ='SET_ISSUES';
+
+export const BACKLOG_ISSUE ='BACKLOG_ISSUE';
+export const INPROGRESS_ISSUE ='INPROGRESS_ISSUE';
+export const COMPLETED_ISSUE ='COMPLETED_ISSUE';
+export const SELECTED_ISSUE='SELECTED_ISSUE'
+

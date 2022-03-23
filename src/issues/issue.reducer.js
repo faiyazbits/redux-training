@@ -1,41 +1,58 @@
-import * as actionTypes from './issue.actionType';
+import * as actionType from './issue.actionType';
+
+const initialState = {
+    issues: [],
+    backlogIssues: [],
+    selectedIssues:[],
+    inprogressIssues:[],
+    completedIssues:[],
+    isissueLoading: false,
+};
 
 
-export default function issueReducer(state = [], action) {
+export default function issueReducer(state = initialState, action) {
 
     switch (action.type) {
 
-        case actionTypes.ADD_ISSUE:
+        case actionType.ADD_ISSUE:
             return {
                 ...state,
                 issues: action.payload.description
             }
-
-        case actionTypes.BACKLOG_ISSUE:
+    
+        case actionType.BACKLOG_ISSUE:
             return {
                 ...state,
                 backlogIssues: state.issues.filter(issue => issue.status == action.payload.status)
             }
 
-        case actionTypes.INPROGRESS_ISSUE:
+        case actionType.INPROGRESS_ISSUE:
             return {
                 ...state,
-                inProgressIssues: state.issues.filter(issue => issue.status == action.payload.status)
+                inprogressIssues: state.issues.filter(issue => issue.status == action.payload.status)
             }
+            
+            case actionType.SELECTED_ISSUE:
+                return {
+                    ...state,
+                    selectedIssues: state.issues.filter(issue => issue.status == action.payload.status)
+                }
 
-        case actionTypes.COMPLETED_ISSUE:
+
+        case actionType.COMPLETED_ISSUE:
             return {
                 ...state,
                 completedIssues: state.issues.filter(issue => issue.status == action.payload.status)
             }
+       
 
-        case actionTypes.SELECTED_ISSUE:
+        case actionType.SET_ISSUES:
             return {
                 ...state,
-                selectedIssues: state.issues.filter(status => status.status == action.payload.status)
+                issues : action.payload.issues
             }
 
-            case actionTypes.REMOVED_ISSUE:
+            case actionType.REMOVED_ISSUE:
                 return {
                     ...state,
                     issues: state.issues.filter(issue => issue.id != action.payload.id)

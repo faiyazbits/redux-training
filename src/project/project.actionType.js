@@ -1,5 +1,7 @@
-export const ADD_PROJECT = "projectCreated";
-export const REMOVED_PROJECT = "projectRemoved";
-export const UPDATE_PROJECT = "projectUpdate";
+export const ADD_PROJECT = "ADD_PROJECT";
+export const REMOVED_PROJECT = "REMOVED_PROJECT";
+export const UPDATED_PROJECT = "UPDATE_PROJECT";
 
-export const SELCTE_PROJECT = "selectProject"
+export const SET_PROJECTS = "SET_PROJECTS";
+
+export const SET_ACTIVE_PROJECT = "SET_ACTIVE_PROJECT";

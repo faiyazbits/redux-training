@@ -1,8 +1,10 @@
-export const ADD_USER = "userCreated";
-export const REMOVED_USER = "userRemoved";
-export const UPDATE_USER = "userUpdate";
+export const ADD_USER = "ADD_USER";
+export const REMOVED_USER = "REMOVED_USER";
+export const UPDATE_USER = "UPDATE_USER";
 
-export const CURRENT_USER = "currentUser"
+export const SET_USERS = "SET_USERS"
+
+export const CURRENT_USER = "CURRENT_USER"
 
 
 

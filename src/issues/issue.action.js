@@ -1,11 +1,21 @@
 import * as actionTypes from './issue.actionType';
 
 
-export function addIssues(description) {
+export function addIssue(description) {
     return {
         type: actionTypes.ADD_ISSUE,
         payload: {
             description
+        }
+    }
+}
+
+
+export function setIssues(issues) {
+    return {
+        type: actionTypes.SET_ISSUES,
+        payload: {
+            issues
         }
     }
 }

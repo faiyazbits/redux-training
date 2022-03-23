@@ -1,30 +1,48 @@
-import * as actionTypes from './project.actionType';
+import * as actionType from './project.actionType';
 
-export function addProjects(description) {
+export function addProject(name,description,url) {
     return {
-        type: actionTypes.ADD_PROJECT,
+        type: actionType.ADD_PROJECT,
         payload: {
-            description
+           name,
+           description,
+           url
         }
     }
 }
 
 export function removeProject(id) {
     return {
-        type: actionTypes.REMOVED_PROJECT,
+        type: actionType.REMOVED_PROJECT,
         payload: {
             id
         }
     }
 }
 
-
-
-export function selectProject(id) {
+export function setProjects(projects) {
     return {
-        type: actionTypes.SELCTE_PROJECT,
+        type: actionType.SET_PROJECTS,
         payload: {
-            id
+            projects
+        }
+    }
+}
+
+export function updatedProject(updatedProject) {
+    return {
+        type: actionType.UPDATED_PROJECT,
+        payload: {
+            updatedProject
+        }
+    }
+}
+
+export function setActiveProject(activeProject) {
+    return {
+        type: actionType.SET_ACTIVE_PROJECT,
+        payload: {
+            activeProject
         }
     }
 }
