@@ -1,33 +1,32 @@
-export const  project = {
-    "id": 3,
-    "name": "singularity 2.0",
-    "url": "https://www.atlassian.com/software/jira",
-    "description": "Plan, track, and manage your agile and software development projects in Jira. Customize your workflow, collaborate, and release great software.",
-    "category": "Manager",
-    "createdAt": "2022-02-08T11:12:48.358Z",
-    "updatedAt": "2022-02-08T11:12:48.358Z"
-    }
+export const project = {
+          "id": 3,
+          "name": "singularity 2.0",
+          "url": "https://www.atlassian.com/software/jira",
+          "description": "Plan, track, and manage your agile and software development projects in Jira. Customize your workflow, collaborate, and release great software.",
+          "category": "Manager",
+          "createdAt": "2022-02-08T11:12:48.358Z",
+          "updatedAt": "2022-02-08T11:12:48.358Z"
+          }
 
-  export  const activeProject = {
-        "id": 3,
-        "name": "singularity 2.0",
-        "url": "https://www.atlassian.com/software/jira",
-        "description": "Plan, track, and manage your agile and software development projects in Jira. Customize your workflow, collaborate, and release great software.",
-        "category": "Manager",
-        "createdAt": "2022-02-08T11:12:48.358Z",
-        "updatedAt": "2022-02-08T11:12:48.358Z"
-        }
-
+  export const activeProject = {
+            "id": 3,
+            "name": "singularity 2.0",
+            "url": "https://www.atlassian.com/software/jira",
+            "description": "Plan, track, and manage your agile and software development projects in Jira. Customize your workflow, collaborate, and release great software.",
+            "category": "Manager",
+            "createdAt": "2022-02-08T11:12:48.358Z",
+            "updatedAt": "2022-02-08T11:12:48.358Z"
+            }
 
 export const updatedProject = {
-        "id": 1,
-        "name": "singularity 4.0",
-        "url": "https://www.atlassian.com/software/jira",
-        "description": "P software development projects in Jira. Customize your workflow, collaborate, and release great software.",
-        "category": "software",
-        "createdAt": "2022-02-08T11:12:48.358Z",
-        "updatedAt": "2022-02-08T11:12:48.358Z"
-        }
+            "id": 1,
+            "name": "singularity 4.0",
+            "url": "https://www.atlassian.com/software/jira",
+            "description": "P software development projects in Jira. Customize your workflow, collaborate, and release great software.",
+            "category": "software",
+            "createdAt": "2022-02-08T11:12:48.358Z",
+            "updatedAt": "2022-02-08T11:12:48.358Z"
+            }
 
 export const issue = {
 "id": 10,
@@ -41,7 +40,7 @@ export const issue = {
 "reporterId": 3,
 "projectId": 1,
 "userIds": [
-2
+    2
 ]
 }
 
@@ -66,3 +65,4 @@ export const updateUser = {
 "projectId": 1,
 "currentUser":false
 }
+

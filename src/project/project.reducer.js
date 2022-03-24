@@ -3,9 +3,9 @@ import * as actionTypes from './project.actionType';
 
 
 const initialState = {
-    projects: [],
+     projects: [],
     activeProject: {},
-    isProjectLoading: false,
+    isProjectLoading: false, 
 };
 export default function projectReducer(state = initialState, action) {
 
@@ -18,7 +18,7 @@ export default function projectReducer(state = initialState, action) {
 
         case actionTypes.REMOVED_PROJECT:
             return {
-                ...state,
+               ...state,
                 projects: state.projects.filter(project => project.id != action.payload.id)
             }
 
