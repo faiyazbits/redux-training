@@ -7,7 +7,10 @@
             "description": "Plan, track, and manage your agile and software development projects in Jira. Customize your workflow, collaborate, and release great software.",
             "category": "software",
             "createdAt": "2022-02-08T11:07:49.430Z",
-            "updatedAt": "2022-02-08T11:07:49.430Z"
+            "updatedAt": "2022-02-08T11:07:49.430Z",
+            "issues" : [
+                
+            ]
         },
         {
             "id": 2,

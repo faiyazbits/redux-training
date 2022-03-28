@@ -3,9 +3,9 @@ import * as actionTypes from './project.actionType';
 
 
 const initialState = {
-     projects: [],
-    activeProject: {},
-    isProjectLoading: false, 
+  projects: [],
+  activeProject: {},
+  isProjectLoading: false,
 };
 export default function projectReducer(state = initialState, action) {
 
@@ -29,7 +29,7 @@ export default function projectReducer(state = initialState, action) {
                 projects: action.payload.projects
             }
 
-        case actionTypes.UPDATED_PROJECT:
+        case actionTypes.UPDATE_PROJECT:
             return {
                 ...state,
                 projects: state.projects.map((project) => {

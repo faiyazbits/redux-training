@@ -31,7 +31,7 @@ export function setProjects(projects) {
 
 export function updatedProject(updatedProject) {
     return {
-        type: actionType.UPDATED_PROJECT,
+        type: actionType.UPDATE_PROJECT,
         payload: {
             updatedProject
         }
