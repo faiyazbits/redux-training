@@ -11,6 +11,7 @@ import { users } from "./data/users.json"
 
 
 import { getBackLogIssues, getInProgressIssues } from "./issues/issue.selectors";
+import { fetchProjects } from "./api";
 
 
 console.log("current state",store.getState());
@@ -46,3 +47,9 @@ console.log(action);
 store.dispatch(action);
 
 console.log("current state",store.getState());
+
+
+fetchProjects()
+
+
+// side effects where do we perform 
