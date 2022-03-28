@@ -1,0 +1,22 @@
+{
+    "projects": [
+        {
+            "id": 1,
+            "name": "singularity 1.0",
+            "url": "https://www.atlassian.com/software/jira",
+            "description": "Plan, track, and manage your agile and software development projects in Jira. Customize your workflow, collaborate, and release great software.",
+            "category": "software",
+            "createdAt": "2022-02-08T11:07:49.430Z",
+            "updatedAt": "2022-02-08T11:07:49.430Z"
+        },
+        {
+            "id": 2,
+            "name": "singularity 1.0",
+            "url": "https://www.atlassian.com/software/jira",
+            "description": "Plan, track, and manage your agile and software development projects in Jira. Customize your workflow, collaborate, and release great software.",
+            "category": "software",
+            "createdAt": "2022-02-08T11:12:48.358Z",
+            "updatedAt": "2022-02-08T11:12:48.358Z"
+        }
+    ]
+}

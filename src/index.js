@@ -1,19 +1,15 @@
 import store from "./store";
-import * as actions from "./action";
 
-// single state object for entire application ( single source of truth)
-// you should not directly mutate or update the store (changes are made with pure functions)
-// state is readonly
+import * as issueActions from "./issues/issue.action"
+import * as projectActions from "./project/project.action"
+import * as userActions from "./users/users.action"
 
-// dispatch an action
-// reducer will get called with current state and current action, will return state
-// components are notified (subscribe)
-// components will take the latest and update themselves
 
-// issue tracking
-// add issue, remove issue and mark issue as resolved
+import { issues } from "./data/issues.json"
+import { projects } from "./data/project.json"
+import { users } from "./data/users.json"
 
-// design the store
+import { project, activeProject , updatedProject , updateUser,currentUser} from "./data/sample_data"
 
 
 console.log("store",store);
@@ -25,18 +21,45 @@ store.subscribe(() => {
 })
 
 
-store.dispatch(actions.addIssue("newBug"));
+  store.dispatch(issueActions.setIssues(issues));
+ store.dispatch(projectActions.setProjects(projects));
+ store.dispatch(userActions.setUsers(users));
 
-store.dispatch(actions.addIssue("new bug2"))
+store.dispatch(projectActions.addProject(project.name,project.description,project.url));
+store.dispatch(projectActions.updatedProject(updatedProject)); 
+store.dispatch(projectActions.setActiveProject(activeProject));
+ store.dispatch(projectActions.removeProject('2'));
 
-/* 
-store.dispatch({
-    type: actionTypes.REMOVED_ISSUE,
-    payload:{
-        id: 2
-    }
-});
- */
+
+
+store.dispatch(userActions.addUser('elvin',"elvi@gmail.com"))
+store.dispatch(userActions.removeUser('1'));
+store.dispatch(userActions.setCurrentUser(currentUser));
+store.dispatch(userActions.updateUser(updateUser));
+
+ 
+store.dispatch(issueActions.removeIssue('4'));
+store.dispatch(issueActions.removeIssue('7'));
+
+store.dispatch(issueActions.addBacklogIssue('backlog'));
+store.dispatch(issueActions.addInProgressIssue("inprogress"));
+store.dispatch(issueActions.addSelectedIssue("selected"));
+store.dispatch(issueActions.addCompletedIssue("done"));
+
+
+/*
+store.dispatch(issueActions.addIssue(issue));
+
+
+store.dispatch(projectActions.removeProject("2"));
+store.dispatch(userActions.removeUser("2"));
+
+store.dispatch(userActions.setCurrentUser("1"))
+store.dispatch(projectActions.setProjects("3")); */
+
+
+
+
 
 
 // exercise one : refactor action creator for remove issue
