@@ -2,10 +2,10 @@ import store from "./store";
 const projects = require('../src/data/projectsData.json')
 const issues = require('../src/data/issuesData.json')
 const users = require('../src/data/usersData.json')
-import * as userActions from ('./users/action')
-import * as projectActions from ('./projects/action')
-import * as issueActions from ('./issue/action')
-import{currentUser,project,updatedProject,activeProject,issue,updatedIssue} from './data/dummy.data'
+import * as userActions from './users/action'
+import * as projectActions from './projects/action'
+import * as issueActions from './issues/action'
+import{currentUser,project,updatedProject,activeProject,issue,updatedIssue,updatedUser} from './data/dummy.data'
 import {getBacklogIssues,getInProgressIssues} from './issues/selector'
 
 store.subscribe(() => {

@@ -1,6 +1,5 @@
 import * as userActionTypes from "./actionTypes"
 
-SET_CURRENT_USER
 
 const initialState = {
     users:[],
@@ -14,12 +13,12 @@ export default function userReducer(state = initialState,action){
         case userActionTypes.SET_USERS:
             return {
                 ...state,
-                users:action.payload.users
+                users:[action.payload.users,...state.users]
             }
         case userActionTypes.ADD_USER:
             return {
                 ...state,
-                users:[...users,{name:action.payload.name,email:action.payload.email}]
+                users:[...state.users,{name:action.payload.name,email:action.payload.email}]
             }
         case userActionTypes.SET_CURRENT_USER:
             return {
@@ -45,5 +44,6 @@ export default function userReducer(state = initialState,action){
                     return user.id !== action.payload.id
                 })
             }
+            default:return state
     }
 }

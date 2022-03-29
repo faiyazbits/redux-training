@@ -12,12 +12,12 @@ switch(action.type){
     case projectsActionTypes.SET_PROJECTS:
         return {
             ...state,
-            projects:action.payload.projects
+            projects:[...state.projects,action.payload.projects]
         }
     case projectsActionTypes.ADD_PROJECT:
         return {
             ...state,
-            projects:[...projects,{name:action.payload.name,url:action.payload.url,description:action.payload.description}]
+            projects:[...state.projects,{name:action.payload.name,url:action.payload.url,description:action.payload.description}]
         }
         
     case projectsActionTypes.SET_ACTIVE_PROJECT:
@@ -45,5 +45,7 @@ switch(action.type){
                 return project.id !== action.payload.is
             })
         }
+        default:
+            return state
 }   
 }

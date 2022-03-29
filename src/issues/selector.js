@@ -1,15 +1,15 @@
-export function getBacklogIssues(state){
+export function getBacklogIssues(state) {
     const issueState = state.issues
     const issues = issueState.issues
-issues.filter((issue)=>{
-    return issue.status == 'backlog'
-})
+    issues.filter((issue) => {
+        return issue.status == 'backlog'
+    })
 }
 
-export function getInProgressIssues(state){
+export function getInProgressIssues(state) {
     const issueState = state.issues
     const issues = issueState.issues
-issues.filter((issue)=>{
-    return issue.status == 'inProgress'
+    issues.filter((issue) => {
+        return issue.status == 'inProgress'
     })
-    }
+}
