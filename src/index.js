@@ -16,7 +16,6 @@ import { fetchProjects } from "./api";
 import { getSoftwareProjects } from "./project/project.selectors";
 import { getUser } from "./users/users.selectors";
 
-
 console.log("current state",store.getState());
 
 let action = setProjects(projects);
@@ -31,7 +30,6 @@ store.dispatch(action);
 
 console.log("current state",store.getState());
 console.log("software", getSoftwareProjects(store.getState()));
-
 
 action = setIssues(issues);
 console.log(action);

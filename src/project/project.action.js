@@ -46,3 +46,13 @@ export function setActiveProject(activeProject) {
         }
     }
 }
+
+
+export function fetchProjects(projects){
+    return{
+        type:actionType.FETCH_PROJECTS,
+        payload:{
+            projects
+        }
+    }
+}

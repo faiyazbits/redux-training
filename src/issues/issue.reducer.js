@@ -13,12 +13,7 @@ export default function issueReducer(state = initialState, action) {
         issues: [action.payload.issue, ...state.issues],
       };
 
-    case actionType.ADD_ISSUE:
-        return {
-          ...state,
-          issues: [action.payload.issue, ...state.issues],
-    };  
-
+    
     case actionType.SET_ISSUES:
       return {
         ...state,
