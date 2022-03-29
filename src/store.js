@@ -1,10 +1,11 @@
-import { combineReducers, createStore } from "redux";
+
 
 import  issueReducer  from "./issues/issue.reducer"
 import  userReducer  from "./users/users.reducer"
 import  projectReducer  from "./project/project.reducer"
-
-
+import { combineReducers, createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+import {api} from "./api"
 
 const state  = {
   users:userReducer,
@@ -13,7 +14,8 @@ const state  = {
 }
 
 const rdcr = combineReducers(state);
-const store = createStore(rdcr);
+
+const store = createStore(rdcr, applyMiddleware(thunk));
 
 export default store;
 

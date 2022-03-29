@@ -1,6 +1,6 @@
 export const project = {
           "id": 3,
-          "name": "singularity 2.0",
+          "name": "new Project",
           "url": "https://www.atlassian.com/software/jira",
           "description": "Plan, track, and manage your agile and software development projects in Jira. Customize your workflow, collaborate, and release great software.",
           "category": "Manager",
@@ -18,7 +18,7 @@ export const project = {
             "updatedAt": "2022-02-08T11:12:48.358Z"
             }
 
-export const updatedProject = {
+export const updateProject = {
             "id": 1,
             "name": "singularity 4.0",
             "url": "https://www.atlassian.com/software/jira",

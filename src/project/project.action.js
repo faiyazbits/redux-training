@@ -1,12 +1,12 @@
 import * as actionType from './project.actionType';
 
-export function addProject(name,description,url) {
+export function addProject({name,description,url}) {
     return {
         type: actionType.ADD_PROJECT,
         payload: {
            name,
            description,
-           url
+           url:url
         }
     }
 }
@@ -46,3 +46,4 @@ export function setActiveProject(activeProject) {
         }
     }
 }
+
