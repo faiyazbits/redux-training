@@ -1,4 +1,5 @@
 import * as actionType from './project.actionType';
+import { fetchProjects } from '../api';
 
 export function addProject(name,description,url) {
     return {
@@ -45,4 +46,15 @@ export function setActiveProject(activeProject) {
             activeProject
         }
     }
+}
+
+
+export function getProjects(){
+    return function(dispatch){
+return fetchProjects().then((res) => res.json())
+.then(
+    (response) =>  dispatch(setProjects(response.projects)),
+    error => console.log(error,'error thrown')
+)
+}
 }
