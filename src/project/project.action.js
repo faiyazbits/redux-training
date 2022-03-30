@@ -1,5 +1,41 @@
+import { fetchProjectsApi } from '../api';
 import * as actionType from './project.actionType';
 
+
+export function  fetchProjects(){
+    return function (dispatch){
+        dispatch(fetchProjectsLoading())
+        fetchProjectsApi().then((projetcs) => {
+            dispatch(setProjects(projetcs))
+        }).catch((error)=>{
+            dispatch(fetchProjectsFailure(error))
+        })
+    }
+}
+
+export function fetchProjectsLoading(){
+    return {
+        type:actionType.FETCH_PROJECT_LOADING
+    }
+}
+export function setProjects(projects) {
+    return {
+        type: actionType.SET_PROJECTS,
+        payload: {
+            projects
+        }
+    }
+}
+
+
+export function fetchProjectsFailure(error){
+    return{
+        type:actionType.FETCH_PROJECT_FAILURE,
+        payload:{
+            error
+        }
+    }
+}
 export function addProject(name,description,url) {
     return {
         type: actionType.ADD_PROJECT,
@@ -20,14 +56,7 @@ export function removeProject(id) {
     }
 }
 
-export function setProjects(projects) {
-    return {
-        type: actionType.SET_PROJECTS,
-        payload: {
-            projects
-        }
-    }
-}
+
 
 export function updatedProject(updatedProject) {
     return {
@@ -48,11 +77,3 @@ export function setActiveProject(activeProject) {
 }
 
 
-export function fetchProjects(projects){
-    return{
-        type:actionType.FETCH_PROJECTS,
-        payload:{
-            projects
-        }
-    }
-}

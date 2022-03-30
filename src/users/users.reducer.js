@@ -4,18 +4,32 @@ const initialState = {
     users: [],
     currentUser: {},
     isUserLoading: false,
+    errror:''
 };
 
 export default function userReducer(state = initialState, action) {
 
     switch (action.type) {
 
-        case actionTypes.SET_USERS:
+        
+        case actionTypes.FETCH_USER_LOADING:
+            return{
+                ...state,
+                isUserLoading:true
+            }
+            case actionTypes.SET_USERS:
             return {
                 ...state,
                 users: action.payload.users
             }
 
+        case actionTypes.FETCH_USER_FAILURE:
+            return{
+                ...state,
+                users: [],
+                isUserLoading: false,
+                errror:action.payload.users
+            }
         case actionTypes.ADD_USER:
             return {
                 ...state,

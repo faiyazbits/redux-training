@@ -1,5 +1,42 @@
+import { fetchIssuesApi } from '../api';
 import * as actionTypes from './issue.actionType';
 
+
+
+
+export function  fetchIssues(){
+    return function (dispatch){ 
+        dispatch(fetchIssuesloading())
+        fetchIssuesApi().then((issues) => {
+            dispatch(setIssues(issues))
+        }) .catch((error)=>{
+          dispatch(fetchIssuesFailure(error))
+        })
+    }
+}
+ export function fetchIssuesloading(){
+     return {
+         type:actionTypes.FETCH_ISSUES_LOADING
+     }
+ }
+
+
+ export function setIssues(issues) {
+    return {
+        type: actionTypes.SET_ISSUES,
+        payload: {
+            issues
+        }
+    }
+}
+ export function fetchIssuesFailure(error){
+     return{
+         type:actionTypes.FETCH_ISSUES_FAILURE,
+         payload: {
+            error
+        }
+     }
+ }
 
 export function addIssue(issue) {
     return {
@@ -11,14 +48,7 @@ export function addIssue(issue) {
 }
 
 
-export function setIssues(issues) {
-    return {
-        type: actionTypes.SET_ISSUES,
-        payload: {
-            issues
-        }
-    }
-}
+
 
 export function removeIssue(id) {
     return {

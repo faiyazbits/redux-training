@@ -1,6 +1,37 @@
+import { fetchUsersApi } from '../api';
 import * as actionType from './users.actionType';
 
+export function  fetchUsers(){
+    return function (dispatch){  
+        dispatch(fetchUserLoading())
+        fetchUsersApi().then((users) => {
+            dispatch(setUsers(users))
+        }).catch((error)=>{
+            dispatch(fetchUserFailure(error))
+        })
+    }
+}
+export function fetchUserLoading(){
+   return{
+       type:actionType.FETCH_USER_LOADING
+   }
+}
 
+export function setUsers(users){
+    return {
+        type : actionType.SET_USERS,
+        payload : { users }
+    }
+}
+
+
+export function fetchUserFailure(error){
+    return{
+       type:actionType.FETCH_USER_FAILURE,
+       payload: error
+    }
+}
+ 
 export function addUser(name,email) {
     return {
         type: actionType.ADD_USER,
@@ -32,11 +63,5 @@ export function setCurrentUser(currentUser){
     }
 }
 
-export function setUsers(users){
-    return {
-        type : actionType.SET_USERS,
-        payload : { users }
-    }
-}
 
 
