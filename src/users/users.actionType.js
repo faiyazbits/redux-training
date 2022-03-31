@@ -7,5 +7,8 @@ export const SET_USERS = "SET_USERS"
 export const CURRENT_USER = "CURRENT_USER"
 
 
+export const USER_LOADING_STATUS = "USER_LOADING_STATUS"
+
+
 
 

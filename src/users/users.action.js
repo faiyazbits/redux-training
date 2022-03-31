@@ -1,3 +1,4 @@
+import { fetchUsersApi } from '../api';
 import * as actionType from './users.actionType';
 
 
@@ -39,4 +40,24 @@ export function setUsers(users){
     }
 }
 
+
+export function setUserLoadding(isLoading){
+    return{
+        type: actionType.USER_LOADING_STATUS,
+        payload:{
+            isLoading
+        }
+    }
+    }
+    
+    
+    export function fetchUsers() {
+        return function (dispatch) {
+            dispatch(setUserLoadding(true))
+            return fetchUsersApi().then((res) => res.json())
+                .then((response) => dispatch(setUsers(response.users)),
+                    (error) => console.log(error, 'error thrown'),
+                )
+        }
+    }
 

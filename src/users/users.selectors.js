@@ -1,8 +1,4 @@
 
-
-
-
-
 export function getUser(state){
     const userState = state.users;
     const users = userState.users;

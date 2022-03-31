@@ -19,7 +19,7 @@ export const project = {
             }
 
 export const updateProject = {
-            "id": 1,
+            "id": 3,
             "name": "singularity 4.0",
             "url": "https://www.atlassian.com/software/jira",
             "description": "P software development projects in Jira. Customize your workflow, collaborate, and release great software.",

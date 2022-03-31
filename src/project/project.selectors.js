@@ -1,6 +1,4 @@
 
-
-
 export function getProjectCategory(state){
     const projectState = state.projects;
     const projects = projectState.projects;

@@ -13,6 +13,7 @@ export default function userReducer(state = initialState, action) {
         case actionTypes.SET_USERS:
             return {
                 ...state,
+                isUserLoading: false,
                 users: action.payload.users
             }
 
@@ -47,6 +48,12 @@ export default function userReducer(state = initialState, action) {
                 currentUser: action.payload.currentUser
             }
 
+            case actionTypes.USER_LOADING_STATUS:
+                return{
+                    ...state,
+                    isUserLoading : action.payload.isLoading
+                }
+                
         default:
             return state;
     }

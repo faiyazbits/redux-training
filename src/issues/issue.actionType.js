@@ -5,4 +5,6 @@ export const REMOVED_ISSUE = "REMOVED_ISSUE";
 export const UPDATE_ISSUE = "UPDATE_ISSUE";
 export const SET_ISSUES ='SET_ISSUES';
 
+export const ISSUE_LOADING_STATUS = "ISSUE_LOADING_STATUS"
+
 

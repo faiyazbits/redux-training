@@ -1,3 +1,4 @@
+import { fetchIssuesApi } from '../api';
 import * as actionTypes from './issue.actionType';
 
 
@@ -35,5 +36,26 @@ export function updateIssue(issue) {
         payload: {
             issue
         }
+    }
+}
+
+
+export function setIssueLoadding(isLoading) {
+    return {
+        type: actionTypes.ISSUE_LOADING_STATUS,
+        payload: {
+            isLoading
+        }
+    }
+}
+
+
+export function fetchIssues() {
+    return function (dispatch) {
+        dispatch(setIssueLoadding(true))
+        return fetchIssuesApi().then((res) => res.json())
+            .then((response) => dispatch(setIssues(response.issues)), 
+                (error) => console.log(error, 'error thrown'),
+                )
     }
 }

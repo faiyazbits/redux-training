@@ -1,12 +1,12 @@
+import { fetchProjectsApi } from '../api';
+import store from '../store';
 import * as actionType from './project.actionType';
 
-export function addProject({name,description,url}) {
+export function addProject(project) {
     return {
         type: actionType.ADD_PROJECT,
         payload: {
-           name,
-           description,
-           url:url
+            project
         }
     }
 }
@@ -17,6 +17,25 @@ export function removeProject(id) {
         payload: {
             id
         }
+    }
+}
+
+export function setProjectLoadding(isLoading) {
+    return {
+        type: actionType.PROJECT_LOADING_STATUS,
+        payload: {
+            isLoading
+        }
+    }
+}
+
+
+export function fetchProjects() {
+    return function (dispatch) {
+        dispatch(setProjectLoadding(true))
+        return fetchProjectsApi().then((res) => res.json())
+            .then((response) => dispatch(setProjects(response.projects)),
+                (error) => console.log(error, 'error thrown'))
     }
 }
 

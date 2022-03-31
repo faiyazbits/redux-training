@@ -1,4 +1,4 @@
-import * as actionType from "./issue.actionType";
+import * as actionTypes from "./issue.actionType";
 
 const initialState = {
   issues: [],
@@ -7,30 +7,36 @@ const initialState = {
 
 export default function issueReducer(state = initialState, action) {
   switch (action.type) {
-    case actionType.ADD_ISSUE:
+    case actionTypes.ADD_ISSUE:
       return {
         ...state,
         issues: [action.payload.issue, ...state.issues],
       };
 
-    case actionType.ADD_ISSUE:
-        return {
-          ...state,
-          issues: [action.payload.issue, ...state.issues],
-    };  
-
-    case actionType.SET_ISSUES:
+    case actionTypes.ADD_ISSUE:
       return {
         ...state,
+        issues: [action.payload.issue, ...state.issues],
+      };
+
+    case actionTypes.SET_ISSUES:
+      return {
+        ...state,
+        isIssueLoading: false,
         issues: action.payload.issues,
       };
 
-    case actionType.REMOVED_ISSUE:
+    case actionTypes.REMOVED_ISSUE:
       return {
         ...state,
         issues: state.issues.filter((issue) => issue.id != action.payload.id),
       };
 
+    case actionTypes.ISSUE_LOADING_STATUS:
+      return {
+        ...state,
+        isIssueLoading: action.payload.isLoading
+      }
     default:
       return state;
   }
