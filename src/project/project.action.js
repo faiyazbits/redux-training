@@ -61,14 +61,14 @@ export function setProjectLoadingStatus(status) {
 
 
 
+
 export function getProjects() {
     return function (dispatch) {
         dispatch(setProjectLoadingStatus(true))
         return fetchProjects().then((res) => res.json())
-            .then(
-                (response) => dispatch(setProjects(response.projects)),
-                dispatch(setProjectLoadingStatus(false)),
-                error => console.log(error, 'error thrown'),
-            )
+            .then((response) => {
+                dispatch(setProjects(response.projects))
+            })
+            .catch((error) => console.log(error))
     }
-}
+  }

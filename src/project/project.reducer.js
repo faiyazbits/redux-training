@@ -25,6 +25,7 @@ export default function projectReducer(state = initialState, action) {
         case actionTypes.SET_PROJECTS:
             return {
                 ...state,
+                isProjectLoading:false,
                 projects: action.payload.projects
             }
 
