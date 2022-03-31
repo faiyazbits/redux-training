@@ -46,7 +46,11 @@ export default function projectReducer(state = initialState, action) {
                 ...state,
                 activeProject: action.payload.activeProject
             }
-
+        case actionTypes.SET_PROJECT_LOADING_STATUS:
+            return {
+                ...state,
+                isProjectLoading:action.payload.status
+            }
 
         default:
             return state;

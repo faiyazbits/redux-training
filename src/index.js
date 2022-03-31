@@ -55,7 +55,10 @@ import { fetchProjects } from "./api";
 
 // side effects where do we perform 
 
+
+
 store.dispatch(getProjects())
+
 store.subscribe(()=>{
   console.log(store.getState())
 })

@@ -1,13 +1,14 @@
 import * as actionType from './project.actionType';
 import { fetchProjects } from '../api';
+import store from '../store';
 
-export function addProject(name,description,url) {
+export function addProject(name, description, url) {
     return {
         type: actionType.ADD_PROJECT,
         payload: {
-           name,
-           description,
-           url
+            name,
+            description,
+            url
         }
     }
 }
@@ -48,13 +49,27 @@ export function setActiveProject(activeProject) {
     }
 }
 
-
-export function getProjects(){
-    return function(dispatch){
-return fetchProjects().then((res) => res.json())
-.then(
-    (response) =>  dispatch(setProjects(response.projects)),
-    error => console.log(error,'error thrown')
-)
+export function setProjectLoadingStatus(status) {
+    return {
+        type: actionType.SET_PROJECT_LOADING_STATUS,
+        payload: {
+            status
+        }
+    }
 }
+
+
+
+
+export function getProjects() {
+    return function (dispatch) {
+        dispatch(setProjectLoadingStatus(true))
+        console.log(store.getState())
+        return fetchProjects().then((res) => res.json())
+            .then(
+                (response) => dispatch(setProjects(response.projects)),
+                dispatch(setProjectLoadingStatus(false)),
+                error => console.log(error, 'error thrown'),
+            )
+    }
 }
