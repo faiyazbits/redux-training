@@ -64,7 +64,6 @@ export function setProjectLoadingStatus(status) {
 export function getProjects() {
     return function (dispatch) {
         dispatch(setProjectLoadingStatus(true))
-        console.log(store.getState())
         return fetchProjects().then((res) => res.json())
             .then(
                 (response) => dispatch(setProjects(response.projects)),
