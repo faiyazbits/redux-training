@@ -25,7 +25,7 @@ export default function projectReducer(state = initialState, action) {
         case actionTypes.SET_PROJECTS:
             return {
                 ...state,
-                isProjectLoading: false,
+                 isProjectLoading: false,
                 projects: action.payload.projects
             }
 
@@ -47,7 +47,11 @@ export default function projectReducer(state = initialState, action) {
                 activeProject: action.payload.activeProject
             }
 
-
+        case actionTypes.PROJECT_LOADING:
+            return{
+                ...state,
+                isProjectLoading:action.payload.isLoading
+            }
         default:
             return state;
     }

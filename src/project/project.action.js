@@ -1,4 +1,16 @@
+import { fetchProjectsApi } from '../api';
 import * as actionType from './project.actionType';
+
+
+export function fetchProjects(){
+    return function(dispatch){
+        
+        dispatch(setProjectLoading(true))
+        fetchProjectsApi().then((projects) => {
+            dispatch(setProjects(projects))
+        })
+    }
+}
 
 export function addProject(name,description,url) {
     return {
@@ -7,6 +19,15 @@ export function addProject(name,description,url) {
            name,
            description,
            url
+        }
+    }
+}
+
+export function setProjectLoading(isLoading){
+    return{
+        type:actionType.PROJECT_LOADING,
+        payload:{
+            isLoading
         }
     }
 }

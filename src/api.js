@@ -1,11 +1,11 @@
 
 
-export function fetchProjects(){
-    fetch('http://localhost:5000/projects',{
-        headers: {Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImlhdCI6MTY0ODQzNTM4NCwiZXhwIjoxNjYzOTg3Mzg0fQ.hl1KBkW9nhNrUNgTf9wTF-plB72SQekWsOE1CQgvHP8'}
+export function fetchProjectsApi(){
+   return fetch('http://localhost:5000/projects',{
+        headers: {Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImlhdCI6MTY0NjgyODk2NCwiZXhwIjoxNjYyMzgwOTY0fQ.C1sBA_X_yKr1A0sagq9rV1bKqNucgf1ElDHY7K-83ok'}
     })
     .then((res) => res.json())
     .then((response) => {
-        console.log(response)
+        return response.projects;
     })
 }

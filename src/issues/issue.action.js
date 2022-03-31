@@ -1,6 +1,7 @@
 import * as actionTypes from './issue.actionType';
 
 
+
 export function addIssue(issue) {
     return {
         type: actionTypes.ADD_ISSUE,
