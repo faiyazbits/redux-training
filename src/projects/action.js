@@ -15,7 +15,7 @@ export function addProject(project){
     return {
         type: projectsActionTypes.ADD_PROJECT,
     payload: {
-        project
+       project
     }
 }
 }

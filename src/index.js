@@ -13,11 +13,11 @@ store.subscribe(() => {
 })
 
 
-store.dispatch(userActions.setUsers(users))
-store.dispatch(userActions.setCurrentUser(currentUser))
-store.dispatch(userActions.addUser('marzooka','marzooka@gmail.com'))
-store.dispatch(userActions.updateUser(updatedUser))
-store.dispatch(userActions.removeUser(2))
+// store.dispatch(userActions.setUsers(users))
+// store.dispatch(userActions.setCurrentUser(currentUser))
+// store.dispatch(userActions.addUser('marzooka','marzooka@gmail.com'))
+// store.dispatch(userActions.updateUser(updatedUser))
+// store.dispatch(userActions.removeUser(2))
 
 
 store.dispatch(projectActions.setProjects(projects))
@@ -27,14 +27,15 @@ store.dispatch(projectActions.updateProject(updatedProject))
 store.dispatch(projectActions.removeProject(1))
 
 
-store.dispatch(issueActions.setIssues(issues))
-store.dispatch(issueActions.addIssue(issue))
-store.dispatch(issueActions.updateIssue(updatedIssue))
-store.dispatch(issueActions.removeIssue(1))
+// store.dispatch(issueActions.setIssues(issues))
+// store.dispatch(issueActions.addIssue(issue))
+// store.dispatch(issueActions.updateIssue(updatedIssue))
+// store.dispatch(issueActions.removeIssue(1))
 
 
-getBacklogIssues(store.getState())
-getInProgressIssues(store.getState())
+
+// console.log('backlog issue' , getBacklogIssues(store.getState()))
+// console.log('in progress issues' , getInProgressIssues(store.getState()))
 
 
 

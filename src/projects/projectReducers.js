@@ -17,7 +17,7 @@ switch(action.type){
     case projectsActionTypes.ADD_PROJECT:
         return {
             ...state,
-            projects:[...state.projects,{name:action.payload.name,url:action.payload.url,description:action.payload.description}]
+           projects:[...state.projects,action.payload.project]
         }
         
     case projectsActionTypes.SET_ACTIVE_PROJECT:
@@ -33,8 +33,10 @@ switch(action.type){
                     return {
                         ...action.payload.updatedProject
                     }
+                }else{
+                    return project
                 }
-                return project
+               
             })
         }  
 
@@ -42,7 +44,7 @@ switch(action.type){
         return{
             ...state,
             projects:state.projects.filter((project)=>{
-                return project.id !== action.payload.is
+                return project.id != action.payload.id
             })
         }
         default:
