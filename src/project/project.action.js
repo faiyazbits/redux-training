@@ -11,13 +11,11 @@ export function fetchProjects(){
         })
     }
 }
-export function addProject(name,description,url) {
+export function addProject(newProject) {
     return {
         type: actionType.ADD_PROJECT,
         payload: {
-           name,
-           description,
-           url
+           project:newProject
         }
     }
 }
