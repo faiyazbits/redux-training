@@ -4,8 +4,10 @@ import * as actionType from './project.actionType';
 
 export function fetchProjects(){
     return function(dispatch){
+        dispatch(setProjectLoading(true));
         fetchProjectsApi().then((projects) => {
             dispatch(setProjects(projects))
+            dispatch(setProjectLoading(false));
         })
     }
 }
@@ -52,6 +54,15 @@ export function setActiveProject(activeProject) {
         type: actionType.SET_ACTIVE_PROJECT,
         payload: {
             activeProject
+        }
+    }
+}
+
+export function setProjectLoading(isLoading) {
+    return {
+        type: actionType.SET_PROJECT_LOADING,
+        payload: {
+            isLoading
         }
     }
 }

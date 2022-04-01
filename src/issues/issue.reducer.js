@@ -30,6 +30,12 @@ export default function issueReducer(state = initialState, action) {
         ...state,
         issues: state.issues.filter((issue) => issue.id != action.payload.id),
       };
+      
+    case actionType.SET_ISSUES_LOADING:
+      return {
+        ...state,
+        isIssueLoading: action.payload.isLoading
+      };
 
     default:
       return state;

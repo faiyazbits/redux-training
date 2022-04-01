@@ -1,6 +1,17 @@
+import { fetchIssuesApi } from '../api';
 import * as actionTypes from './issue.actionType';
 
 
+
+export function fetchIssues(projectId){
+    return function(dispatch){
+        dispatch(setIssueLoading(true));
+        fetchIssuesApi(projectId).then((projects) => {
+            dispatch(setIssues(projects))
+            dispatch(setIssueLoading(false));
+        })
+    }
+}
 export function addIssue(issue) {
     return {
         type: actionTypes.ADD_ISSUE,
@@ -34,6 +45,15 @@ export function updateIssue(issue) {
         type: actionTypes.UPDATE_ISSUE,
         payload: {
             issue
+        }
+    }
+}
+
+export function setIssueLoading(isLoading) {
+    return {
+        type: actionTypes.SET_ISSUES_LOADING,
+        payload: {
+            isLoading
         }
     }
 }

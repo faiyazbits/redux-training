@@ -1,55 +1,48 @@
 import store from "./store";
 
-import {setIssues} from "./issues/issue.action"
-import {setProjects,setActiveProject,updatedProject} from "./project/project.action"
+import {fetchIssues, setIssues} from "./issues/issue.action"
+import {setProjects,setActiveProject,updatedProject,fetchProjects, addProject} from "./project/project.action"
 import * as userActions from "./users/users.action"
-
-
-import { issues } from "./data/issues.json"
-import { projects } from "./data/project.json"
-import { users } from "./data/users.json"
-
-
+import {} from './issues/issue.action'
 import { getBackLogIssues, getInProgressIssues } from "./issues/issue.selectors";
-import { fetchProjects } from "./api";
+import { getProjectById } from './project/project.selectors'
+
+// this action will fetch the project and dispatch set project action
+store.dispatch(fetchProjects());
+
+// we will have projects in the store now
+
+// in order to fetch the issues of a project. we need to dispatch fetch issues action with projectId
+
+// set timeout is because fetch projects is async call and will only get the data after some time. framework will handle this 
+setTimeout(() => {
+  // getProjectById is a selector to select a project from the store for a given id
+const firstProject = getProjectById(store.getState(),1);
+console.log('first project selected', firstProject);
+
+// dispatch fetch issues action
+store.dispatch(fetchIssues(firstProject.id));
+
+// store will have issues now
+// we can use selectors to get different kind of issues
+
+setTimeout(() => {
+  const backlogs = getBackLogIssues(store.getState());
+  console.log('backlog issues',backlogs);
+},2000)
 
 
-console.log("current state",store.getState());
+const newProject = {
+  "id": 3,
+  "name": "singularity 3.0",
+  "url": "https://www.atlassian.com/software/jira",
+  "description": "Plan, track, and manage your agile and software development projects in Jira. Customize your workflow, collaborate, and release great software.",
+  "category": "software",
+}
 
-let action = setProjects(projects);
-console.log('action',action);
-store.dispatch(action);
-console.log("current state",store.getState());
-
-
-action = setActiveProject(projects[0]);
-console.log(action);
-store.dispatch(action);
-
-console.log("current state",store.getState());
+// just adding a new project to the store
+store.dispatch(addProject(newProject));
 
 
-action = setIssues(issues);
-console.log(action);
-store.dispatch(action);
+},2000)
 
-console.log("current state",store.getState());
-
-console.log('backlogIssues', getBackLogIssues(store.getState()));
-console.log('inprogressIssues', getInProgressIssues(store.getState()));
-
-
-action = updatedProject({
-  ...projects[0],
-  name:'changed name'
-});
-console.log(action);
-store.dispatch(action);
-
-console.log("current state",store.getState());
-
-
-fetchProjects()
-
-
-// side effects where do we perform 

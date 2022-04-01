@@ -22,10 +22,15 @@ export default function projectReducer(state = initialState, action) {
                 projects: state.projects.filter(project => project.id != action.payload.id)
             }
 
+        case actionTypes.SET_PROJECT_LOADING:
+            return {
+               ...state,
+               isProjectLoading: action.payload.isLoading
+            }
+
         case actionTypes.SET_PROJECTS:
             return {
                 ...state,
-                isProjectLoading: false,
                 projects: action.payload.projects
             }
 
