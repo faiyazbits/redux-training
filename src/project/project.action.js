@@ -1,5 +1,14 @@
+import { fetchProjectsApi } from '../api';
 import * as actionType from './project.actionType';
 
+
+export function fetchProjects(){
+    return function(dispatch){
+        fetchProjectsApi().then((projects) => {
+            dispatch(setProjects(projects))
+        })
+    }
+}
 export function addProject(name,description,url) {
     return {
         type: actionType.ADD_PROJECT,
