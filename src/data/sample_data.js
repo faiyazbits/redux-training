@@ -1,4 +1,4 @@
-export const project = {
+export const newProject = {
           "id": 3,
           "name": "singularity 2.0",
           "url": "https://www.atlassian.com/software/jira",
@@ -31,6 +31,22 @@ export const updatedProject = {
 export const issue = {
 "id": 10,
 "title": "Click on an issue to see what's behind it.",
+"type": "task",
+"status": "backlog",
+"priority": "2",
+"listPosition": 2,
+"estimate": 5,
+"timeSpent": 2,
+"reporterId": 3,
+"projectId": 1,
+"userIds": [
+    2
+]
+}
+
+export const updatedIssue = {
+"id": 3,
+"title": "new issue",
 "type": "task",
 "status": "backlog",
 "priority": "2",

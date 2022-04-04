@@ -1,8 +1,9 @@
 import store from "./store";
 
 
-import { setIssues } from "./issues/issue.action"
-import { setProjects, setActiveProject, updatedProject, getProjects } from "./project/project.action"
+import { addIssue, getIssues, setIssues, updateIssue } from "./issues/issue.action"
+import { setProjects, setActiveProject, updateProject, getProjects, addProject, removeProject } from "./project/project.action"
+
 import * as userActions from "./users/users.action"
 
 
@@ -12,11 +13,14 @@ import { users } from "./data/users.json"
 
 
 import { getBackLogIssues, getInProgressIssues } from "./issues/issue.selectors";
-import { fetchProjects } from "./api";
+import { fetchIssues, fetchProjects } from "./api";
+import { activeProject, newProject, updatedProject, issue, updatedIssue } from "./data/sample_data";
+import { getProjectById } from "./project/project.selector";
 
 
+//monkey-patching
 
-const database = {
+/* const database = {
   rows: [],
   create(name, age) {
     this.rows.push(`${name},${age}`)
@@ -33,4 +37,30 @@ function createAndLogUser() {
 
 createAndLogUser()
 database.create('faiyaz', 26)
-database.create('marzooka', 23)
+database.create('marzooka', 23) */
+
+
+
+store.dispatch((getProjects()))
+
+setTimeout(() => {
+  store.dispatch((addProject(newProject)))
+  store.dispatch((setActiveProject(activeProject)))
+  store.dispatch(updateProject(updatedProject))
+  store.dispatch(removeProject(2))
+}, 2000)
+
+
+setTimeout(() => {
+  const selectedProject = getProjectById(store.getState(), 1)
+  console.log(selectedProject)
+  store.dispatch(getIssues(selectedProject.id))
+}, 5000)
+
+
+setTimeout(() => {
+  store.dispatch((addIssue(issue)))
+},6000)
+
+
+

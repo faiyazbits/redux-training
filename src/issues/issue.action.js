@@ -1,4 +1,18 @@
+import { fetchIssues } from '../api';
 import * as actionTypes from './issue.actionType';
+import { getBackLogIssues } from './issue.selectors';
+
+
+export function getIssues(projectId) {
+    return function (dispatch) {
+        dispatch(setIssueLoadingStatus(true))
+        return fetchIssues(projectId).then((res) => res.json())
+            .then((response) => {
+                dispatch(setIssues(response.issues))
+            })
+            .catch((error) => console.log(error))
+    }
+}
 
 
 export function addIssue(issue) {
@@ -29,11 +43,21 @@ export function removeIssue(id) {
     }
 }
 
-export function updateIssue(issue) {
+export function updateIssue(updatedIssue) {
     return {
         type: actionTypes.UPDATE_ISSUE,
         payload: {
-            issue
+            updatedIssue
+        }
+    }
+}
+
+
+export function setIssueLoadingStatus(status) {
+    return {
+        type: actionTypes.SET_ISSUE_LOADING_STATUS,
+        payload: {
+            status
         }
     }
 }

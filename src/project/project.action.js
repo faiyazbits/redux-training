@@ -1,23 +1,24 @@
 import * as actionType from './project.actionType';
 import { fetchProjects } from '../api';
-import store from '../store';
 
-export function addProject(name, description, url) {
-    return {
-        type: actionType.ADD_PROJECT,
-        payload: {
-            name,
-            description,
-            url
-        }
+
+
+export function getProjects() {
+    return function (dispatch) {
+        dispatch(setProjectLoadingStatus(true))
+        return fetchProjects().then((res) => res.json())
+            .then((response) => {
+                dispatch(setProjects(response.projects))
+            })
+            .catch((error) => console.log(error))
     }
 }
 
-export function removeProject(id) {
+export function setProjectLoadingStatus(status) {
     return {
-        type: actionType.REMOVED_PROJECT,
+        type: actionType.SET_PROJECT_LOADING_STATUS,
         payload: {
-            id
+            status
         }
     }
 }
@@ -31,14 +32,15 @@ export function setProjects(projects) {
     }
 }
 
-export function updatedProject(updatedProject) {
+export function addProject(newProject) {
     return {
-        type: actionType.UPDATE_PROJECT,
+        type: actionType.ADD_PROJECT,
         payload: {
-            updatedProject
+            project: newProject
         }
     }
 }
+
 
 export function setActiveProject(activeProject) {
     return {
@@ -49,11 +51,22 @@ export function setActiveProject(activeProject) {
     }
 }
 
-export function setProjectLoadingStatus(status) {
+export function removeProject(id) {
     return {
-        type: actionType.SET_PROJECT_LOADING_STATUS,
+        type: actionType.REMOVE_PROJECT,
         payload: {
-            status
+            id
+        }
+    }
+}
+
+
+
+export function updateProject(updatedProject) {
+    return {
+        type: actionType.UPDATE_PROJECT,
+        payload: {
+            updatedProject
         }
     }
 }
@@ -62,13 +75,7 @@ export function setProjectLoadingStatus(status) {
 
 
 
-export function getProjects() {
-    return function (dispatch) {
-        dispatch(setProjectLoadingStatus(true))
-        return fetchProjects().then((res) => res.json())
-            .then((response) => {
-                dispatch(setProjects(response.projects))
-            })
-            .catch((error) => console.log(error))
-    }
-  }
+
+
+
+
